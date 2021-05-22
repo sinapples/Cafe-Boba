@@ -1,6 +1,37 @@
 <template>
   <div class="page-wrapper">
     <h1 class="home-page-title">{{ appTitle }}</h1>
+
+    <v-card>
+      <v-card-title>
+        Summer Side Project
+      </v-card-title>
+      <v-card-subtitle
+        >Interested in a live guided class on web app?</v-card-subtitle
+      >
+      <v-card-text>
+        <v-text-field v-model="name" label="Name" dense outlined></v-text-field>
+        <v-text-field
+          v-model="name"
+          label="Discord Username"
+          dense
+          outlined
+          placeholder="sinap#3816"
+        ></v-text-field>
+        <v-text-field
+          v-model="name"
+          label="Favorite Drink"
+          dense
+          outlined
+          placeholder="Thai Iced Tea"
+        ></v-text-field>
+      </v-card-text>
+      <v-card-actions
+        ><v-spacer /><v-btn block color="primary"
+          >I'm Interested</v-btn
+        ></v-card-actions
+      >
+    </v-card>
   </div>
 </template>
 
@@ -20,6 +51,15 @@ export default {
           id: 'desc'
         }
       ]
+    }
+  },
+  data() {
+    return {
+      name: '',
+      discord: '',
+      experience: '',
+      drink: '',
+      displayMyName: false
     }
   },
   computed: mapState('app', ['appTitle'])
