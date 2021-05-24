@@ -1,5 +1,8 @@
 <template>
-  <header class="navbar" :class="{ offline: !networkOnLine }">
+  <v-app-bar app class="navbar">
+    <v-toolbar-title>Cafe Boba</v-toolbar-title>
+  </v-app-bar>
+  <!-- <header class="navbar" :class="{ offline: !networkOnLine }">
     <router-link to="/home">
       <img alt="logo-bento" class="logo" src="@/assets/img/bento-starter.svg" />
       <span class="site-name title-desktop">{{ appTitle }}</span>
@@ -30,7 +33,7 @@
         alt="Avatar"
       />
     </div>
-  </header>
+  </header> -->
 </template>
 
 <script>
@@ -55,18 +58,6 @@ export default {
 @import '@/theme/variables.scss';
 
 .navbar {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 20;
-  right: 0;
-  height: $navbar-height;
-  background-color: $navbar-color;
-  box-sizing: border-box;
-  border-bottom: 1px solid #eaecef;
-  padding: 0.7rem 1.5rem;
-  line-height: 2.2rem;
-
   a {
     display: flex;
     align-items: center;
@@ -99,7 +90,7 @@ export default {
   .site-name {
     font-size: 1.3rem;
     font-weight: 600;
-    color: #2c3e50;
+    color: white;
     position: relative;
   }
 
@@ -137,7 +128,7 @@ export default {
           font-weight: 500;
           font-size: 0.9rem;
           text-decoration: none;
-          color: $navbar-link-color;
+          color: white;
           border-color: #2c3e50;
           line-height: 1.4rem;
           display: inline-block;
@@ -146,7 +137,6 @@ export default {
 
         @mixin activatedLink() {
           margin-bottom: -2px;
-          border-bottom: 2px solid $vue-color;
         }
 
         .router-link-active {
@@ -163,7 +153,6 @@ export default {
   }
 
   &.offline {
-    background: $navbar-offline-color;
     .links .nav-links .nav-item a,
     .site-name {
       color: white;
