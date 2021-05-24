@@ -1,6 +1,13 @@
 <template>
-  <v-app-bar app class="navbar">
-    <v-toolbar-title>Cafe Boba</v-toolbar-title>
+  <v-app-bar app class="navbar" color="milk">
+    <v-toolbar-title>
+      <v-icon color="black">mdi-tea</v-icon> Cafe Boba</v-toolbar-title
+    >
+
+    <v-spacer></v-spacer>
+    <v-badge :content="count" :value="count" :color="colorCount" class="mr-6">
+      <v-icon color="black" @click="count++">mdi-chart-bubble</v-icon>
+    </v-badge>
   </v-app-bar>
   <!-- <header class="navbar" :class="{ offline: !networkOnLine }">
     <router-link to="/home">
@@ -41,10 +48,27 @@ import firebase from 'firebase/app'
 import { mapGetters, mapState } from 'vuex'
 
 export default {
+  data() {
+    return {
+      count: 0
+    }
+  },
   computed: {
     ...mapGetters('authentication', ['isUserLoggedIn']),
     ...mapState('authentication', ['user']),
-    ...mapState('app', ['networkOnLine', 'appTitle', 'appShortTitle'])
+    ...mapState('app', ['networkOnLine', 'appTitle', 'appShortTitle']),
+    colorCount() {
+      if (this.count % 4 === 0) {
+        return 'matcha'
+      }
+      if (this.count % 3 === 0) {
+        return 'taro'
+      }
+      if (this.count % 2 === 0) {
+        return 'thai'
+      }
+      return 'berry'
+    }
   },
   methods: {
     async logout() {

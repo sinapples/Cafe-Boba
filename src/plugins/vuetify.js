@@ -7,8 +7,10 @@ export default new Vuetify({
   theme: {
     themes: {
       light: {
-        taro: '#d2c4d4',
+        taro: '#b49fcc',
+        thai: '#ff8b4c',
         matcha: '#bbd79b',
+        berry: '#fda3cc',
         milk: '#deb780',
         primary: '#abdae1',
         secondary: '#424242',

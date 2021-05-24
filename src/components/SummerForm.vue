@@ -2,13 +2,13 @@
   <div>
     <v-card>
       <v-card-title>
-        Summer Side Project
+        Summer of Side Projects
       </v-card-title>
       <v-card-subtitle
         >Interested in a live guided class on web app?</v-card-subtitle
       >
       <v-card-text>
-        <v-form ref="form" v-model="valid" lazy-validation>
+        <v-form ref="form" v-model="valid">
           <v-text-field
             v-model="name"
             label="Name"
@@ -42,34 +42,51 @@
             label="What are you interested in?"
             multiple
           ></v-combobox>
-          <v-radio-group v-model="experienceType">
-            <v-row no-gutters>
-              <v-col>
-                <v-radio label="Student" value="student"></v-radio>
-              </v-col>
-              <v-col>
-                <v-radio label="Working" value="work"></v-radio>
-              </v-col>
-              <v-spacer></v-spacer>
-            </v-row>
+
+          <!-- <v-checkbox
+            v-model="isStudent"
+            label="Are you a student or learning how to code"
+            color="matcha"
+            value="matcha"
+          ></v-checkbox> -->
+          <v-radio-group
+            v-model="experienceType"
+            row
+            label="Experience level"
+            :error="name !== '' && !!!experienceType"
+          >
+            <v-radio label="New to Code" value="new"></v-radio>
+
+            <v-radio label="Student" value="student"></v-radio>
+
+            <v-radio label="New Grad" value="newGrad"></v-radio>
+
+            <v-radio label="Profesional" value="profesional"></v-radio>
           </v-radio-group>
         </v-form>
       </v-card-text>
+      <v-card-subtitle v-if="error" class="text-center"
+        >Error sumbiting form. Please reload and try again
+      </v-card-subtitle>
       <v-card-actions
         ><v-spacer /><v-btn
+          v-if="!sent"
           block
           :loading="loading"
           :disabled="!valid"
-          color="primary"
+          color="matcha"
           @click="submit()"
-          >I'm Interested</v-btn
-        ></v-card-actions
-      >
+          >I'm Interested
+        </v-btn>
+        <v-btn v-if="sent" block :color="submitColor" @click="count++">
+          Response Sumbitted
+        </v-btn>
+      </v-card-actions>
     </v-card>
 
-    <v-card>
+    <!-- <v-card>
       {{ formContent }}
-    </v-card>
+    </v-card> -->
   </div>
 </template>
 
@@ -80,7 +97,12 @@ import SummerFormDB from '@/firebase/SummerFormDB'
 export default {
   data() {
     return {
-      experienceType: 1,
+      sent: false,
+      error: false,
+      isStudent: false,
+      // submitColor: "primary",
+      count: 0,
+      experienceType: '',
       name: '',
       nameRules: [
         v => !!v || 'Name is required',
@@ -99,21 +121,34 @@ export default {
       valid: false,
       displayMyName: false,
       interest: [
+        'Career Advice',
+        'Interview Prep',
+        'Voice Apps',
+        'Web Apps',
         'Vue',
         'React',
         'Angular',
-        'Voice',
         'AI/ML',
         'Rust',
-        'LeetCode',
-        'Interview Prep',
-        'Career Advice'
+        'LeetCode'
       ],
       selectedInterest: []
     }
   },
   computed: {
     ...mapState('app', ['appTitle']),
+    submitColor() {
+      if (this.count % 4 === 0) {
+        return 'matcha'
+      }
+      if (this.count % 3 === 0) {
+        return 'taro'
+      }
+      if (this.count % 2 === 0) {
+        return 'thai'
+      }
+      return 'berry'
+    },
 
     formContent() {
       return {
@@ -121,7 +156,8 @@ export default {
         discord: this.discord,
         drink: this.drink,
         interest: this.selectedInterest,
-        experienceType: this.experienceType
+        experienceType: this.experienceType,
+        isStudent: this.isStudent
       }
     }
   },
@@ -129,9 +165,19 @@ export default {
     async submit() {
       console.log(this.formContent)
       const db = new SummerFormDB()
-      this.loading = true
-      await db.create(this.formContent)
-      this.loading = false
+
+      try {
+        this.loading = true
+        this.error = false
+        await db.create(this.formContent)
+        this.loading = false
+        this.sent = true
+      } catch (err) {
+        console.log('Error')
+        console.log(err)
+        this.loading = false
+        this.error = true
+      }
     }
   }
 }
