@@ -9,11 +9,21 @@
       >
       <v-card-text>
         <v-form ref="form" v-model="valid" lazy-validation>
-          <v-text-field v-model="name" label="Name" dense></v-text-field>
+          <v-text-field
+            v-model="name"
+            label="Name"
+            :rules="[v => !!v || 'Name is required']"
+            dense
+          ></v-text-field>
+          <v-text-field
+            v-model="email"
+            :rules="emailRules"
+            label="E-mail"
+            required
+          ></v-text-field>
           <v-text-field
             v-model="discord"
             label="Discord Username"
-            :rules="nameRules"
             placeholder="sinap#3816"
           ></v-text-field>
           <v-text-field
@@ -24,6 +34,7 @@
           <v-combobox
             v-model="selectedInterest"
             :items="interest"
+            :rules="[v => !!v || 'Select some interest']"
             persistent-hint
             hint="Create your own by typing"
             color="primary"
@@ -77,6 +88,12 @@ export default {
       ],
       loading: false,
       discord: '',
+      email: '',
+      emailRules: [
+        v => !!v || 'E-mail is required',
+        v => /.+@.+\..+/.test(v) || 'E-mail must be valid'
+      ],
+
       experience: '',
       drink: '',
       valid: false,
