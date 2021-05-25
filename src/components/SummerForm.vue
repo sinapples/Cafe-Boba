@@ -5,7 +5,8 @@
         Summer of Side Projects
       </v-card-title>
       <v-card-subtitle
-        >Interested in a live guided class on web app?</v-card-subtitle
+        >Interested in live guided classes on how to make web
+        apps?</v-card-subtitle
       >
       <v-card-text>
         <v-form ref="form" v-model="valid">
@@ -62,20 +63,23 @@
             :rules="[v => v !== '' || 'Select experance level']"
           >
             <!-- :error="name !== '' && !!!experienceType" -->
-            <v-radio label="New to Code" value="new"></v-radio>
+            <v-radio label="New to Code/No experience" value="new"></v-radio>
 
             <v-radio label="Student" value="student"></v-radio>
 
-            <v-radio label="New Grad" value="newGrad"></v-radio>
+            <v-radio
+              label="New Grad/Professional"
+              value="newProfessional"
+            ></v-radio>
 
-            <v-radio label="Profesional" value="profesional"></v-radio>
+            <v-radio label="Professional" value="professional"></v-radio>
           </v-radio-group>
           <v-checkbox
-            v-if="experienceType === 'profesional'"
+            v-if="experienceType === 'professional'"
             v-model="isTA"
-            label="Are you interested in leading a project/to or helping out"
+            label="Are you interested in leading a project or helping out"
             color="matcha"
-            value="matcha"
+            value="interested"
           ></v-checkbox>
         </v-form>
       </v-card-text>
@@ -144,7 +148,9 @@ export default {
         'Angular',
         'AI/ML',
         'Rust',
-        'LeetCode'
+        'LeetCode',
+        'K-Pop',
+        'Games'
       ],
       selectedInterest: [],
       availablity: [],
