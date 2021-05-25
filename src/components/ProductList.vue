@@ -8,7 +8,7 @@
     <v-data-table
       :headers="headers"
       :items="products"
-      :items-per-page="5"
+      :items-per-page="500"
       class="elevation-1"
     >
     </v-data-table>
@@ -32,6 +32,7 @@ export default {
           sortable: false,
           value: 'name'
         },
+        { text: 'Email', value: 'email' },
         { text: 'Discord', value: 'discord' },
         { text: 'Drink', value: 'drink' },
         { text: 'Experience', value: 'experienceType' },
