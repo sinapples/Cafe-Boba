@@ -1,5 +1,5 @@
 <template>
-  <v-app-bar app class="navbar" color="milk">
+  <v-app-bar app color="milk">
     <v-toolbar-title>
       <v-icon color="black">mdi-tea</v-icon> Cafe Boba</v-toolbar-title
     >

@@ -44,23 +44,28 @@
             class="mx-auto title font-weight-light mb-8 text-center text-justify"
             max-width="720"
           >
-            <p>
-              Cafe Boba is a Discord Community made for friends to hangout while
-              working on our project and goals.
-            </p>
-            We can chill here and keep each other company while we are working
-            or playing. The idea is this like a cafe, library, or quiet room. We
-            can keep each other motivated and accountable for working on our
-            projects. Use the goals channel to post your goals for the month
-            andupdates to share our progress. We will have optional weekly
-            meetups to keep each other on track of our goals.
+            <div class="px-4">
+              <p>
+                Cafe Boba is a Discord Community made for friends to hangout
+                while working on our project and goals.
+              </p>
+              <p>
+                We can chill here and keep each other company while we are
+                working or playing. The idea is this like a cafe, library, or
+                quiet room. We can keep each other motivated and accountable for
+                working on our projects. Use the goals channel to post your
+                goals for the month andupdates to share our progress. We will
+                have optional weekly meetups to keep each other on track of our
+                goals.
+              </p>
+            </div>
           </v-responsive>
 
           <div></div>
         </div>
       </v-container>
     </v-sheet>
-
+    <!-- Photo 2 -->
     <v-parallax
       height="600"
       src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=3900&q=80"
@@ -69,7 +74,107 @@
         <Scroll msg="Scroll" />
       </div>
     </v-parallax>
-    <v-sheet id="summer-form" color="primary">
+
+    <!-- Events -->
+    <v-sheet color="thai  ">
+      <v-container class="text-center  ">
+        <div class="my-8">
+          <h2 class="display-2 font-weight-bold mb-3 text-center">
+            Tech Talks and Projects
+          </h2>
+
+          <v-responsive class="mx-auto mb-8" width="56">
+            <v-divider class="mb-1"></v-divider>
+
+            <v-divider></v-divider>
+          </v-responsive>
+
+          <v-responsive
+            class="mx-auto title font-weight-light mb-8 text-center text-justify"
+            max-width="720"
+          >
+            <div class="px-4">
+              <h4 class="  mb-4 text-center">
+                Join us for bimonthly tech talks from a variety of topics
+              </h4>
+
+              <h5>
+                Learn new tech
+              </h5>
+              <p class="subtitle-1">
+                Devloping voice apps Google Assisant and Alexa <br />
+                Introduction to Django <br />
+                What is Service Now and how to get started <br />
+              </p>
+              <h5>
+                Career Chats
+              </h5>
+              <p class="subtitle-1">
+                Interview Prep and Resume Review <br />
+                Mock inteviews and LeetCode Practice<br />
+                How to get your first job in tech <br />
+                Career advice <br />
+                Computer Science Master Degrees<br />
+              </p>
+            </div>
+          </v-responsive>
+
+          <div></div>
+        </div>
+      </v-container>
+    </v-sheet>
+
+    <!-- Projects -->
+    <v-sheet color="taro">
+      <v-container class="text-center  ">
+        <div class="my-8">
+          <h2 class="display-2 font-weight-bold mb-3 text-center">
+            Projects
+          </h2>
+
+          <v-responsive class="mx-auto mb-8" width="56">
+            <v-divider class="mb-1"></v-divider>
+
+            <v-divider></v-divider>
+          </v-responsive>
+
+          <v-responsive
+            class="mx-auto title font-weight-light mb-8 text-center text-justify"
+            max-width="720"
+          >
+            <div class="px-4">
+              <h4 class="text-center  mb-3 ">
+                Work and colaborate on projects. <br />
+              </h4>
+
+              <h5>Here are some project pepole are working on <br /></h5>
+
+              <p class="subtitle-1  pl-4">
+                ● Cafe Boba (This website)<br />
+                ● Learn Japanese video builder <br />
+                ● Online marketplace for virtual event <br />
+                ● Text editor using rust<br />
+                ● Using ML to predict stock pices<br />
+              </p>
+              <h5>Not sure what to build? <br /></h5>
+              <p class="body-1 mb-4">
+                We have guided live sessions
+              </p>
+              <p class="subtitle-1 pl-4">
+                ● Create a website to view prices of cypto using an API<br />
+                ● Build a voice app to track your sleep or water intake<br />
+                ● Make a portfolio website<br />
+                <br />
+              </p>
+            </div>
+          </v-responsive>
+
+          <div></div>
+        </div>
+      </v-container>
+    </v-sheet>
+    <!-- Summer form -->
+    <v-sheet color="primary">
       <v-responsive
         class="mx-auto title font-weight-light mb-8"
         max-width="720"
@@ -85,22 +190,26 @@
           </v-responsive>
 
           <v-responsive
-            class="mx-auto title font-weight-light mb-8 text-center text-center"
+            class="mx-auto title font-weight-light mb-8 text-center text-justify"
             max-width="720"
           >
-            <p>
-              Learn something new this summer!
-            </p>
-            <p>
-              Get motivated and work on a project. We can motivated and keep
-              each other accountable for working on a personal project,
-              interview prep or anything else!
-            </p>
-            <p>
-              Don't know what to work on or want to learn something new? <br />
-              We can help! We are will ofter classes on how to create web apps
-              or learning new languages
-            </p>
+            <div class="px-4">
+              <p>
+                Learn something new this summer!
+              </p>
+              <p>
+                Get motivated and work on a project. We can motivated and keep
+                each other accountable for working on a personal project,
+                interview prep or anything else!
+              </p>
+              <p>
+                Don't know what to work on or want to learn something new?
+                <br />
+                We can help! We are will ofter classes on how to create web apps
+                or learning new languages
+              </p>
+            </div>
+            <div id="summer-form"></div>
           </v-responsive>
           <summerForm />
         </div>

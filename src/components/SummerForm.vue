@@ -11,6 +11,7 @@
         <v-form ref="form" v-model="valid">
           <v-text-field
             v-model="name"
+            class="required"
             label="Name"
             :rules="[v => !!v || 'Name is required']"
             dense
@@ -32,9 +33,19 @@
             placeholder="Thai Iced Tea"
           ></v-text-field>
           <v-combobox
+            v-model="availablity"
+            :items="availablityList"
+            :rules="[v => v.length > 0 || 'Select some availablities']"
+            persistent-hint
+            color="primary"
+            chips
+            label="When are you usually available?"
+            multiple
+          ></v-combobox>
+          <v-combobox
             v-model="selectedInterest"
             :items="interest"
-            :rules="[v => !!v || 'Select some interest']"
+            :rules="[v => v.length > 0 || 'Select some interest']"
             persistent-hint
             hint="Create your own by typing"
             color="primary"
@@ -43,18 +54,14 @@
             multiple
           ></v-combobox>
 
-          <!-- <v-checkbox
-            v-model="isStudent"
-            label="Are you a student or learning how to code"
-            color="matcha"
-            value="matcha"
-          ></v-checkbox> -->
           <v-radio-group
             v-model="experienceType"
             row
             label="Experience level"
-            :error="name !== '' && !!!experienceType"
+            color="matcha"
+            :rules="[v => v !== '' || 'Select experance level']"
           >
+            <!-- :error="name !== '' && !!!experienceType" -->
             <v-radio label="New to Code" value="new"></v-radio>
 
             <v-radio label="Student" value="student"></v-radio>
@@ -63,6 +70,13 @@
 
             <v-radio label="Profesional" value="profesional"></v-radio>
           </v-radio-group>
+          <v-checkbox
+            v-if="experienceType === 'profesional'"
+            v-model="isTA"
+            label="Are you interested in leading a project/to or helping out"
+            color="matcha"
+            value="matcha"
+          ></v-checkbox>
         </v-form>
       </v-card-text>
       <v-card-subtitle v-if="error" class="text-center"
@@ -76,7 +90,7 @@
           :disabled="!valid"
           color="matcha"
           @click="submit()"
-          >I'm Interested
+          >I'm Interested!
         </v-btn>
         <v-btn v-if="sent" block :color="submitColor" @click="count++">
           Response Sumbitted
@@ -99,7 +113,7 @@ export default {
     return {
       sent: false,
       error: false,
-      isStudent: false,
+      isTA: false,
       // submitColor: "primary",
       count: 0,
       experienceType: '',
@@ -132,7 +146,21 @@ export default {
         'Rust',
         'LeetCode'
       ],
-      selectedInterest: []
+      selectedInterest: [],
+      availablity: [],
+      availablityList: [
+        'Monday Evenings',
+        'Tuesday Evenings',
+        'Wednesday Evenings',
+        'Thursday Evenings',
+        'Friday Evenings',
+        'Saturday Evenings',
+        'Sunday Evenings',
+        'Saturday Afternoon',
+        'Sunday Afternoon',
+        'Anytime with notice',
+        'None'
+      ]
     }
   },
   computed: {
@@ -157,7 +185,7 @@ export default {
         drink: this.drink,
         interest: this.selectedInterest,
         experienceType: this.experienceType,
-        isStudent: this.isStudent
+        isTA: this.isTA
       }
     }
   },
@@ -185,7 +213,10 @@ export default {
 
 <style lang="scss" scoped>
 @import '@/theme/variables.scss';
-
+.required label::after {
+  content: '*';
+  color: red;
+}
 .page-wrapper {
   display: flex;
   flex-direction: column;
