@@ -1,13 +1,15 @@
 import UserProductsDB from '@/firebase/user-products-db'
+import SummerDB from '@/firebase/SummerFormDB'
 
 export default {
   /**
    * Fetch products of current loggedin user
    */
-  getUserProducts: async ({ rootState, commit }) => {
-    const userProductDb = new UserProductsDB(rootState.authentication.user.id)
+  getUserProducts: async ({ commit }) => {
+    const db = new SummerDB()
 
-    const products = await userProductDb.readAll()
+    const products = await db.readAll()
+    console.log(products)
     commit('setProducts', products)
   },
 

@@ -1,34 +1,65 @@
 <template>
-  <div>
+  <div class="page-wrapper">
     <p v-if="products === null" class="infos-label">Loading...</p>
     <p v-if="products && !products.length" class="infos-label">
       You don't have any product yet
     </p>
-    <product-item
-      v-for="(product, index) in products"
-      :key="product.id"
-      class="product-row"
-      :index="index"
-      :is-product-deletion-pending="isProductDeletionPending(product.id)"
-      :disable-actions="!networkOnLine"
-      :data="product"
-      @deleteProduct="deleteUserProduct"
-    ></product-item>
+
+    <v-data-table
+      :headers="headers"
+      :items="products"
+      :items-per-page="5"
+      class="elevation-1"
+    >
+    </v-data-table>
   </div>
 </template>
 
 <script>
-import ProductItem from '@/components/ProductItem'
-import { mapState, mapActions, mapGetters } from 'vuex'
+// import ProductItem from '@/components/ProductItem'
+// import { mapState, mapActions, mapGetters } from 'vuex'
+import SummerFormDB from '@/firebase/SummerFormDB'
 
 export default {
-  components: { ProductItem },
-  computed: {
-    ...mapGetters('products', ['isProductDeletionPending']),
-    ...mapState('products', ['products']),
-    ...mapState('app', ['networkOnLine'])
+  // components: { ProductItem },
+
+  data() {
+    return {
+      headers: [
+        {
+          text: 'Name',
+          align: 'start',
+          sortable: false,
+          value: 'name'
+        },
+        { text: 'Discord', value: 'discord' },
+        { text: 'Drink', value: 'drink' },
+        { text: 'Experience', value: 'experienceType' },
+        { text: 'TA', value: 'isTA' },
+        { text: 'Availablity', value: 'availablity' },
+
+        { text: 'Interest', value: 'interest' }
+      ],
+      products: []
+    }
   },
-  methods: mapActions('products', ['deleteUserProduct'])
+
+  mounted() {
+    this.getData()
+  },
+  // computed: {
+  //   ...mapGetters('products', ['isProductDeletionPending']),
+  //   ...mapState('products', ['products']),
+  //   ...mapState('app', ['networkOnLine'])
+  // },
+  // methods: mapActions('products', ['deleteUserProduct'])
+
+  methods: {
+    async getData() {
+      const db = new SummerFormDB()
+      this.products = await db.readAll()
+    }
+  }
 }
 </script>
 

@@ -4,6 +4,7 @@ service cloud.firestore {
   
     match /forms/summerForm/form/{fromID} {
        allow create: if true;
+       allow read: if authenticated() && request.auth.uid == "SJYh7GPVzlSEl6fbdkOrvANpnE63";
     }
     
     match /users/{userId} {

@@ -181,11 +181,13 @@ export default {
     formContent() {
       return {
         name: this.name,
+        email: this.email,
         discord: this.discord,
         drink: this.drink,
         interest: this.selectedInterest,
         experienceType: this.experienceType,
-        isTA: this.isTA
+        isTA: this.isTA,
+        availablity: this.availablity
       }
     }
   },
