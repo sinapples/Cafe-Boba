@@ -40,7 +40,17 @@
             persistent-hint
             color="primary"
             chips
-            label="When are you usually available?"
+            label="What day are you usually available?"
+            multiple
+          ></v-combobox>
+          <v-combobox
+            v-model="availablityTime"
+            :items="availablityTimeList"
+            :rules="[v => v.length > 0 || 'Select some availabilities']"
+            persistent-hint
+            color="primary"
+            chips
+            label="What time are you usually available?"
             multiple
           ></v-combobox>
           <v-combobox
@@ -51,7 +61,18 @@
             hint="Create your own by typing"
             color="primary"
             chips
-            label="What are you interested in?"
+            label="What topics are you interested in?"
+            multiple
+          ></v-combobox>
+
+          <v-combobox
+            v-model="selectedInterestSummer"
+            :items="interestSummer"
+            :rules="[v => v.length > 0 || 'Select an option']"
+            persistent-hint
+            color="primary"
+            chips
+            label="Interested in wokring on summer porject?"
             multiple
           ></v-combobox>
 
@@ -143,6 +164,7 @@ export default {
         'Interview Prep',
         'Voice Apps',
         'Web Apps',
+        'Git',
         'Vue',
         'React',
         'Angular',
@@ -153,6 +175,17 @@ export default {
         'Games'
       ],
       selectedInterest: [],
+      interestSummer: [
+        'Yes',
+        'I have a project in mind',
+        "Interested but don't know what to make",
+        "Interested but don't know how to code it",
+        'Interested in learning new technologies',
+        'Interested in helping out/answering questions',
+        'Interested and want to teach/talk about something',
+        'Not interested '
+      ],
+      selectedInterestSummer: [],
       availablity: [],
       availablityList: [
         'Monday Evenings',
@@ -164,6 +197,18 @@ export default {
         'Sunday Evenings',
         'Saturday Afternoon',
         'Sunday Afternoon',
+        'Anytime with notice',
+        'None'
+      ],
+      availablityTime: [],
+      availablityTimeList: [
+        '6 PM',
+        '7 PM',
+        '8 PM',
+        '9 PM',
+        '10 PM',
+        '11 PM',
+
         'Anytime with notice',
         'None'
       ]
@@ -193,7 +238,9 @@ export default {
         interest: this.selectedInterest,
         experienceType: this.experienceType,
         isTA: this.isTA,
-        availablity: this.availablity
+        availablity: this.availablity,
+        availablityTime: this.availablityTime,
+        selectedInterestSummer: this.selectedInterestSummer
       }
     }
   },

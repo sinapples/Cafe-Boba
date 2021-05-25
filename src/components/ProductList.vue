@@ -38,8 +38,10 @@ export default {
         { text: 'Experience', value: 'experienceType' },
         { text: 'TA', value: 'isTA' },
         { text: 'Availablity', value: 'availablity' },
+        { text: 'Time', value: 'availablityTime' },
 
-        { text: 'Interest', value: 'interest' }
+        { text: 'Interest', value: 'interest' },
+        { text: 'Summer Project', value: 'selectedInterestSummer' }
       ],
       products: []
     }
