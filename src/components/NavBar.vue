@@ -1,59 +1,54 @@
 <template>
   <v-app-bar app color="milk">
     <v-toolbar-title>
-      <v-icon color="black">mdi-tea</v-icon> Cafe Boba</v-toolbar-title
-    >
+      <router-link v-if="count % 2 === 1" to="/login">
+        <v-icon color="black">mdi-tea</v-icon>
+      </router-link>
+
+      <router-link v-else to="/home">
+        <v-icon color="black">mdi-tea</v-icon>
+      </router-link>
+
+      Cafe Boba
+    </v-toolbar-title>
 
     <v-spacer></v-spacer>
-    <v-badge :content="count" :value="count" :color="colorCount" class="mr-6">
+    <new-content-available-toastr
+      v-if="newContentAvailable"
+      class="new-content-available-toastr"
+      :refreshing-app="refreshingApp"
+      @refresh="serviceWorkerSkipWaiting"
+    ></new-content-available-toastr>
+
+    <v-badge
+      v-else
+      :content="count"
+      :value="count"
+      :color="colorCount"
+      class="mr-6"
+    >
       <v-icon color="black" @click="count++">mdi-chart-bubble</v-icon>
     </v-badge>
   </v-app-bar>
-  <!-- <header class="navbar" :class="{ offline: !networkOnLine }">
-    <router-link to="/home">
-      <img alt="logo-bento" class="logo" src="@/assets/img/bento-starter.svg" />
-      <span class="site-name title-desktop">{{ appTitle }}</span>
-      <span class="site-name title-mobile">{{ appShortTitle }}</span>
-    </router-link>
-    <div class="links">
-      <nav class="nav-links">
-        <div class="nav-item">
-          <router-link to="/products">Products</router-link>
-        </div>
-        <div v-if="!isUserLoggedIn && networkOnLine" class="nav-item">
-          <router-link to="/login">Login</router-link>
-        </div>
-        <div
-          v-if="isUserLoggedIn && networkOnLine"
-          class="nav-item logout-item"
-          @click="logout"
-        >
-          <a>Logout</a>
-        </div>
-        <div v-if="!networkOnLine" class="nav-item offline-label">Offline</div>
-      </nav>
-
-      <img
-        v-if="isUserLoggedIn && networkOnLine"
-        class="user-picture can-hide"
-        :src="user.photoURL"
-        alt="Avatar"
-      />
-    </div>
-  </header> -->
 </template>
 
 <script>
 import firebase from 'firebase/app'
-import { mapGetters, mapState } from 'vuex'
+import { mapGetters, mapState, mapActions } from 'vuex'
+import NewContentAvailableToastr from '@/components/NewContentAvailableToastr'
 
 export default {
+  components: { NewContentAvailableToastr },
+
   data() {
     return {
       count: 0
     }
   },
   computed: {
+    ...mapGetters('app', ['newContentAvailable']),
+    ...mapState('app', ['showAddToHomeScreenModalForApple', 'refreshingApp']),
+
     ...mapGetters('authentication', ['isUserLoggedIn']),
     ...mapState('authentication', ['user']),
     ...mapState('app', ['networkOnLine', 'appTitle', 'appShortTitle']),
@@ -73,7 +68,11 @@ export default {
   methods: {
     async logout() {
       await firebase.auth().signOut()
-    }
+    },
+    ...mapActions('app', [
+      'closeAddToHomeScreenModalForApple',
+      'serviceWorkerSkipWaiting'
+    ])
   }
 }
 </script>
