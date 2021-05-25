@@ -46,17 +46,16 @@
           >
             <div class="px-4">
               <p>
-                Cafe Boba is a Discord Community made for friends to hangout
-                while working on our project and goals.
+                Cafe Boba is a Discord Community made for friends to hang out
+                while working on our projects and goals.
               </p>
               <p>
                 We can chill here and keep each other company while we are
-                working or playing. The idea is this like a cafe, library, or
-                quiet room. We can keep each other motivated and accountable for
-                working on our projects. Use the goals channel to post your
-                goals for the month andupdates to share our progress. We will
-                have optional weekly meetups to keep each other on track of our
-                goals.
+                working or playing. The idea behind this is like a cafe or
+                library. We can keep each other motivated and accountable for
+                working on our projects. Share your goals with the group and
+                post updates on your progress. We have weekly meetups to keep
+                each other on track of our goals.
               </p>
             </div>
           </v-responsive>
@@ -95,26 +94,26 @@
           >
             <div class="px-4">
               <h4 class="  mb-4 text-center">
-                Join us for bimonthly tech talks from a variety of topics
+                Join us for bimonthly tech talks on a variety of topics!
               </h4>
 
               <h5>
-                Learn new tech
+                Learn new technologies:
               </h5>
-              <p class="subtitle-1">
-                Devloping voice apps Google Assisant and Alexa <br />
-                Introduction to Django <br />
-                What is Service Now and how to get started <br />
+              <p class="subtitle-1 pl-4">
+                ● Developing voice apps for Google Assistant and Alexa <br />
+                ● Introduction to Django <br />
+                ● What is Service Now and how to get started <br />
               </p>
               <h5>
-                Career Chats
+                Career Chats:
               </h5>
-              <p class="subtitle-1">
-                Interview Prep and Resume Review <br />
-                Mock inteviews and LeetCode Practice<br />
-                How to get your first job in tech <br />
-                Career advice <br />
-                Computer Science Master Degrees<br />
+              <p class="subtitle-1 pl-4">
+                ● Interview Prep and Resume Review <br />
+                ● Mock inteviews and LeetCode Practice<br />
+                ● How to get your first job in tech <br />
+                ● Career advice <br />
+                ● Computer Science Master Degrees<br />
               </p>
             </div>
           </v-responsive>
@@ -144,28 +143,29 @@
           >
             <div class="px-4">
               <h4 class="text-center  mb-3 ">
-                Work and colaborate on projects. <br />
+                Work and collaborate on projects! <br />
               </h4>
 
-              <h5>Here are some project pepole are working on <br /></h5>
+              <h5>Here are some project people are working on: <br /></h5>
 
               <p class="subtitle-1  pl-4">
                 ● Cafe Boba (This website)<br />
                 ● Learn Japanese video builder <br />
-                ● Online marketplace for virtual event <br />
-                ● Text editor using rust<br />
-                ● Using ML to predict stock pices<br />
+                ● Online marketplace for virtual events <br />
+                ● Text editor using Rust<br />
+                ● Using machine learning to predict stock prices<br />
               </p>
               <h5>Not sure what to build? <br /></h5>
-              <p class="body-1 mb-4">
+              <p class="body-1 mb-0">
                 We have guided live sessions
               </p>
-              <p class="subtitle-1 pl-4">
+
+              <div class="subtitle-1 pl-4">
                 ● Create a website to view prices of cypto using an API<br />
                 ● Build a voice app to track your sleep or water intake<br />
                 ● Make a portfolio website<br />
                 <br />
-              </p>
+              </div>
             </div>
           </v-responsive>
 
@@ -175,10 +175,7 @@
     </v-sheet>
     <!-- Summer form -->
     <v-sheet color="primary">
-      <v-responsive
-        class="mx-auto title font-weight-light mb-8"
-        max-width="720"
-      >
+      <v-responsive class="mx-auto title font-weight-light  " max-width="720">
         <div class="my-8">
           <h3 class="display-2 font-weight-bold mb-3 text-center">
             Summer Projects
@@ -198,15 +195,15 @@
                 Learn something new this summer!
               </p>
               <p>
-                Get motivated and work on a project. We can motivated and keep
-                each other accountable for working on a personal project,
+                Get motivated and work on a project. We can motivate and keep
+                each other accountable for working on personal projects,
                 interview prep or anything else!
               </p>
               <p>
                 Don't know what to work on or want to learn something new?
                 <br />
-                We can help! We are will ofter classes on how to create web apps
-                or learning new languages
+                We can help! We have workshops on how to create web apps or
+                learning new languages.
               </p>
             </div>
             <div id="summer-form"></div>
@@ -224,7 +221,7 @@
           class="noCap"
           color="taro"
           rounded
-          href="https://discord.gg/T34tWJq9"
+          href="https://discord.gg/Ww3TvWEnMD"
         >
           <h1><v-icon class="mr-2">mdi-discord</v-icon> Join the Discord!</h1>
         </v-btn>
@@ -319,270 +316,6 @@ export default {
     text-decoration: none;
     width: fit-content;
     font-weight: 500;
-  }
-
-  @import url(https://fonts.googleapis.com/css?family=Cabin);
-
-  $colorBg: #222a30;
-  $colorOutline: #ffffff;
-  $colorOutlineFade: #4e5559;
-
-  $widthMouse: 52px;
-  $heightMouse: 88px;
-  $borderMouse: 6px;
-
-  $posMouse: 8px;
-  $posText: 2px;
-
-  $sizeTrackball: 10px;
-  $posTrackball: 20px;
-  $shrinkTrackball: 0.4;
-
-  $animDuration: 5s;
-
-  @mixin bgGradient {
-    background: $colorOutlineFade
-      linear-gradient(
-        transparent 0%,
-        transparent 50%,
-        $colorOutline 50%,
-        $colorOutline 100%
-      );
-  }
-
-  body {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    background-color: $colorBg;
-  }
-
-  p {
-    margin-top: 50px;
-    font-family: 'Cabin', sans-serif;
-    letter-spacing: 12px;
-    text-indent: 12px;
-    color: $colorOutline;
-    animation: colorText $animDuration ease-out infinite,
-      nudgeText $animDuration ease-out infinite;
-  }
-
-  .mouse {
-    @include bgGradient;
-    position: relative;
-    width: $widthMouse;
-    height: $heightMouse;
-    border-radius: 100px;
-    background-size: 100% 200%;
-    animation: colorSlide $animDuration linear infinite,
-      nudgeMouse $animDuration ease-out infinite;
-    &:before,
-    &:after {
-      content: '';
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      margin: auto;
-    }
-    &:before {
-      width: $widthMouse - $borderMouse;
-      height: $heightMouse - $borderMouse;
-      background-color: $colorBg;
-      border-radius: 100px;
-    }
-    &:after {
-      background-color: $colorOutline;
-      width: $sizeTrackball;
-      height: $sizeTrackball;
-      border-radius: 100%;
-      animation: trackBallSlide $animDuration linear infinite;
-    }
-  }
-
-  @keyframes colorSlide {
-    0% {
-      background-position: 0% 100%;
-    }
-    20% {
-      background-position: 0% 0%;
-    }
-    21% {
-      background-color: $colorOutlineFade;
-    }
-    29.99% {
-      background-color: $colorOutline;
-      background-position: 0% 0%;
-    }
-    30% {
-      background-color: $colorOutlineFade;
-      background-position: 0% 100%;
-    }
-    50% {
-      background-position: 0% 0%;
-    }
-    51% {
-      background-color: $colorOutlineFade;
-    }
-    59% {
-      background-color: $colorOutline;
-      background-position: 0% 0%;
-    }
-    60% {
-      background-color: $colorOutlineFade;
-      background-position: 0% 100%;
-    }
-    80% {
-      background-position: 0% 0%;
-    }
-    81% {
-      background-color: $colorOutlineFade;
-    }
-    90%,
-    100% {
-      background-color: $colorOutline;
-    }
-  }
-
-  @keyframes trackBallSlide {
-    0% {
-      opacity: 1;
-      transform: scale(1) translateY(-$posTrackball);
-    }
-    6% {
-      opacity: 1;
-      transform: scale(0.9) translateY($posTrackball/4);
-    }
-    14% {
-      opacity: 0;
-      transform: scale($shrinkTrackball) translateY($posTrackball * 2);
-    }
-    15%,
-    19% {
-      opacity: 0;
-      transform: scale($shrinkTrackball) translateY(-$posTrackball);
-    }
-    28%,
-    29.99% {
-      opacity: 1;
-      transform: scale(1) translateY(-$posTrackball);
-    }
-    30% {
-      opacity: 1;
-      transform: scale(1) translateY(-$posTrackball);
-    }
-    36% {
-      opacity: 1;
-      transform: scale(0.9) translateY($posTrackball/4);
-    }
-    44% {
-      opacity: 0;
-      transform: scale($shrinkTrackball) translateY($posTrackball * 2);
-    }
-    45%,
-    49% {
-      opacity: 0;
-      transform: scale($shrinkTrackball) translateY(-$posTrackball);
-    }
-    58%,
-    59.99% {
-      opacity: 1;
-      transform: scale(1) translateY(-$posTrackball);
-    }
-    60% {
-      opacity: 1;
-      transform: scale(1) translateY(-$posTrackball);
-    }
-    66% {
-      opacity: 1;
-      transform: scale(0.9) translateY($posTrackball/4);
-    }
-    74% {
-      opacity: 0;
-      transform: scale($shrinkTrackball) translateY($posTrackball * 2);
-    }
-    75%,
-    79% {
-      opacity: 0;
-      transform: scale($shrinkTrackball) translateY(-$posTrackball);
-    }
-    88%,
-    100% {
-      opacity: 1;
-      transform: scale(1) translateY(-$posTrackball);
-    }
-  }
-
-  @keyframes nudgeMouse {
-    0% {
-      transform: translateY(0);
-    }
-    20% {
-      transform: translateY($posMouse);
-    }
-    30% {
-      transform: translateY(0);
-    }
-    50% {
-      transform: translateY($posMouse);
-    }
-    60% {
-      transform: translateY(0);
-    }
-    80% {
-      transform: translateY($posMouse);
-    }
-    90% {
-      transform: translateY(0);
-    }
-  }
-
-  @keyframes nudgeText {
-    0% {
-      transform: translateY(0);
-    }
-    20% {
-      transform: translateY($posText);
-    }
-    30% {
-      transform: translateY(0);
-    }
-    50% {
-      transform: translateY($posText);
-    }
-    60% {
-      transform: translateY(0);
-    }
-    80% {
-      transform: translateY($posText);
-    }
-    90% {
-      transform: translateY(0);
-    }
-  }
-
-  @keyframes colorText {
-    21% {
-      color: $colorOutlineFade;
-    }
-    30% {
-      color: $colorOutline;
-    }
-    51% {
-      color: $colorOutlineFade;
-    }
-    60% {
-      color: $colorOutline;
-    }
-    81% {
-      color: $colorOutlineFade;
-    }
-    90% {
-      color: $colorOutline;
-    }
   }
 }
 </style>
