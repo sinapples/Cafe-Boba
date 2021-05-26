@@ -118,7 +118,7 @@
           >I'm Interested!
         </v-btn>
         <v-btn v-if="sent" block :color="submitColor" @click="count++">
-          Response Sumbitted
+          Response Submitted
         </v-btn>
       </v-card-actions>
     </v-card>

@@ -1,10 +1,7 @@
 <template>
   <div class="page-wrapper">
     <v-card color="taro">
-      <v-card-title
-        >Total Responses: {{ products.length }} <br />
-        Recent: {{ products[0].name }}</v-card-title
-      >
+      <v-card-title>Total Responses: {{ products.length }} </v-card-title>
     </v-card>
     <v-data-table
       :headers="headers"
