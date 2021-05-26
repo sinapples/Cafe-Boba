@@ -245,7 +245,7 @@ export default {
       meta: [
         {
           name: 'description',
-          content: `${this.appTitle} home page`,
+          content: `Fill out the Summer Survey please!`,
           id: 'desc'
         }
       ]
