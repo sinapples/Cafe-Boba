@@ -1,13 +1,16 @@
 <template>
   <div class="page-wrapper">
-    <p v-if="products === null" class="infos-label">Loading...</p>
-    <p v-if="products && !products.length" class="infos-label">
-      You don't have any product yet
-    </p>
-
+    <v-card color="taro">
+      <v-card-title
+        >Total Responses: {{ products.length }} <br />
+        Recent: {{ products[0].name }}</v-card-title
+      >
+    </v-card>
     <v-data-table
       :headers="headers"
       :items="products"
+      sort-desc
+      sort-by="createTimestamp"
       :items-per-page="500"
       class="elevation-1"
     >
