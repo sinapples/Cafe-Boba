@@ -20,7 +20,7 @@
           rounded
           @click="$vuetify.goTo('#summer-form')"
         >
-          Summer Survey
+          Now Hiring for Pockets
           <v-icon class="ml-2">mdi-file-document-edit-outline</v-icon>
         </v-btn>
       </div>

@@ -2,12 +2,9 @@
   <div>
     <v-card>
       <v-card-title>
-        Summer of Side Projects
+        Availablity Survey
       </v-card-title>
-      <v-card-subtitle
-        >Interested in live guided classes on how to make web
-        apps?</v-card-subtitle
-      >
+      <v-card-subtitle>Interested in helping me make Pockets?</v-card-subtitle>
       <v-card-text>
         <v-form ref="form" v-model="valid">
           <v-text-field
